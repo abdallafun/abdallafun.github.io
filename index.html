@@ -1,0 +1,81 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Abdalla is angry (limited version)</title>
+    <style>
+        body {
+            background-color: black; /* Set the background to black */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .media-container {
+            position: relative;
+            width: 640px; /* Adjust this width as needed */
+            height: 360px; /* Adjust this height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .media-container img, .media-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This makes sure the aspect ratio is preserved while covering the full area */
+            border: none; /* Remove any default border/frame */
+        }
+
+        .media-container video {
+            display: none; /* Hide the video initially */
+        }
+
+        button {
+            position: fixed;
+            bottom: 20px; /* Position button at the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 18px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 32px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="media-container">
+        <img src="abdalla-img.jpg" id="abdalla_img">
+        <video src="abdalla-video.mp4" id="given_video"></video> <!-- Removed the controls attribute -->
+    </div>
+    <br>
+    <button onclick="toggleMedia()">اعطي الزجاجة لعبدالله</button>
+
+    <script>
+        function toggleMedia() {
+            var img = document.getElementById('abdalla_img');
+            var video = document.getElementById('given_video');
+            
+            // Toggle visibility
+            if (img.style.display !== 'none') {
+                img.style.display = 'none'; // Hide the image
+                video.style.display = 'block'; // Show the video
+                video.play(); // Play the video
+            } else {
+                img.style.display = 'block'; // Show the image
+                video.style.display = 'none'; // Hide the video
+                video.pause(); // Pause the video and reset to the start
+                video.currentTime = 0;
+            }
+        }
+    </script>
+</body>
+</html>
